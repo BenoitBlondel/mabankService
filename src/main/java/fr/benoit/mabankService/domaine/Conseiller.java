@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Classe Conseiller heritee d'Employe (discriminant conseiller) contenant les
  * prorietes supplementaires clients (liste des clients geres par le conseiller)
@@ -22,6 +24,7 @@ public class Conseiller extends Employe {
 
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
 	private Collection<Client> clients;
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Gerant gerant;
 

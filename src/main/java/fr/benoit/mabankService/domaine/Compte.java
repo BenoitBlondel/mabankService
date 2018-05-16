@@ -12,6 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Classe Abstraite Compte contenant les proprietes id, numeroCompte (le numero
  * de compte), solde (le solde actule du compte), ouvertureCompte (la date
@@ -33,6 +35,7 @@ public abstract class Compte {
 	protected String numeroCompte;
 	protected Float solde;
 	protected LocalDate ouvertureCompte;
+	@JsonIgnore
 	@OneToOne(fetch = FetchType.EAGER)
 	protected Client client;
 

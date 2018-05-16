@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Classe Client possedant les proprietes id, nom prenom, tel, email, rue
  * (numero et nom de rue), codePostal, ville, entreprise (indiquant si le client
@@ -36,6 +38,7 @@ public class Client {
 	private Boolean entreprise;
 	private Boolean fortunee;
 	private Float soldeTotalComptes;
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Conseiller conseiller;
 	@OneToOne(mappedBy = "client", fetch = FetchType.EAGER)
